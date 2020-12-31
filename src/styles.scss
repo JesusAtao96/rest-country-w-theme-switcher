@@ -4,13 +4,14 @@
 
 @import 'sass/base/base';
 
+@import 'sass/components/button-scroll-top';
 @import 'sass/components/country';
+@import 'sass/components/not-found';
 @import 'sass/components/searchbox';
 @import 'sass/components/selectbox';
 
-@import 'sass/layout/footer';
 @import 'sass/layout/header';
-@import 'sass/layout/base';
+@import 'sass/layout/loading';
 
 @import 'sass/pages/country-detail';
 @import 'sass/pages/countries';

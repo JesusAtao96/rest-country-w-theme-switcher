@@ -1,30 +1,34 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 import { CountryService } from '@data/api';
+import { Country } from '@data/interfaces';
+
+import { LoadingService } from '@shared/services';
 
 @Component({
   selector: 'app-country-detail',
   templateUrl: './country-detail.component.html'
 })
 export class CountryDetailComponent implements OnInit, OnDestroy {
-  country: any;
+  country: Country;
+  isLoading: boolean;
   paramsSubscription: Subscription;
   countrySubscription: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private countriesService: CountryService,
-    private router: Router
+    private loadingService: LoadingService,
+    private countriesService: CountryService
   ) { }
 
   ngOnInit(): void {
     this.paramsSubscription = this.activatedRoute.params
       .subscribe((params) => {
-        console.log(params);
-        this.getCountry(params['country']);
+        this.getCountry(params.country);
       });
   }
 
@@ -33,11 +37,22 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
     this.countrySubscription.unsubscribe();
   }
 
+  showLoadingIndicator(isShow: boolean): void {
+    this.isLoading = isShow;
+    this.loadingService.setShowLoadingIndicator(isShow);
+  }
+
   getCountry(country: string): void {
+    this.country = null;
+    this.showLoadingIndicator(true);
+
     this.countrySubscription = this.countriesService.searchByCountry(country)
+      .pipe(finalize(() => (this.showLoadingIndicator(false))))
       .subscribe(countries => {
-        this.country = countries[0];
-        console.log(this.country);
+        if (countries.length === 1) {
+          this.country = countries[0];
+          console.log(this.country);
+        }
       });
   }
 

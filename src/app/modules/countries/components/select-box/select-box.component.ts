@@ -1,16 +1,24 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Region } from '@data/interfaces';
 
 @Component({
   selector: 'app-select-box',
   templateUrl: './select-box.component.html',
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectBoxComponent implements OnInit {
-  @Output() regionOnChange: EventEmitter<string> = new EventEmitter<string>();
+  isSelectOpen: boolean;
   placeholderText = 'Filter by Region';
 
-  regions = [
+  @Output() regionOnChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() checkOnChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() set isActive(event) {
+    this.isSelectOpen = event;
+  };
+
+
+  regions: Region[] = [
     { text: 'All', value: 'all' },
     { text: 'Africa', value: 'africa' },
     { text: 'America', value: 'americas' },
@@ -19,12 +27,16 @@ export class SelectBoxComponent implements OnInit {
     { text: 'Oceania', value: 'oceania' },
   ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  select(region: any): void {
+  ngOnInit(): void {}
+
+  detectCheckChange(): void {
+    this.checkOnChange.emit(this.isSelectOpen);
+  }
+
+  select(region: Region): void {
     this.placeholderText = region.text;
     this.regionOnChange.emit(region.value);
   }

@@ -1,11 +1,12 @@
-<cdk-virtual-scroll-viewport itemSize="50" class="scroll">
-  <main class="countries">
-    <div class="countries__filter">
-      <app-search-box (textOnChange)="getCountriesByText($event)"></app-search-box>
-      <app-select-box (regionOnChange)="getCountriesByRegion($event)"></app-select-box>
+<main class="countries">
+  <div class="countries__filter">
+    <app-search-box (textOnChange)="getCountriesByText($event)"></app-search-box>
+    <app-select-box (regionOnChange)="getCountriesByRegion($event)" [isActive]="isActive" (checkOnChange)="isActive = $event"></app-select-box>
+  </div>
+    <div class="countries__body">
+      <app-country [@inOutAnimation] *ngFor="let country of countries; trackBy: countryTrackBy" [country]="country" (click)="goToCountryDetail(country.name)"></app-country>
+      <app-not-found class="countries__empty" *ngIf="countries.length === 0 && !isLoading"></app-not-found>
     </div>
-      <div class="countries__body">
-        <app-country *cdkVirtualFor="let country of countries" [country]="country" (click)="goToCountryDetail(country.name)"></app-country>
-      </div>
-  </main>
-</cdk-virtual-scroll-viewport>
+</main>
+
+<app-button-scroll-top></app-button-scroll-top>

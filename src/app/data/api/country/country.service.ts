@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 
+import { Country } from '@data/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +12,15 @@ import { environment } from '@env/environment';
 export class CountryService {
   constructor(private http: HttpClient) {}
 
-  getCountries(): Observable<any> {
-    /* return this.http.get<any>(`${environment.api}/all?fields=name;capital;population;flag;region`); */
-    return this.http.get<any>(`${environment.api}/region/Africa?fields=name;capital;population;flag;region`);
+  getCountries(): Observable<Country[]> {
+    return this.http.get<Country[]>(`${environment.api}/all?fields=name;capital;population;flag;region`);
   }
 
-  searchByRegion(param: string): Observable<any> {
-    return this.http.get<any>(`${environment.api}/region/${ param }?fields=name;capital;population;flag;region`);
+  searchByRegion(param: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${environment.api}/region/${ param }?fields=name;capital;population;flag;region`);
   }
 
-  searchByCountry(param: string): Observable<any> {
-    return this.http.get<any>(`${environment.api}/name/${ param }`);
+  searchByCountry(param: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${environment.api}/name/${ param }`);
   }
 }

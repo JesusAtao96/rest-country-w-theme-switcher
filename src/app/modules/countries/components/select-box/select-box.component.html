@@ -1,5 +1,5 @@
 <div class="selectbox">
-  <input class="selectbox__check" id="select-chk" type="checkbox" />
+  <input class="selectbox__check" id="select-chk" type="checkbox" [(ngModel)]="isSelectOpen" (change)="detectCheckChange()" />
   <label for="select-chk" class="selectbox__label">
     <span class="selectbox__text">{{ placeholderText }}</span>
 

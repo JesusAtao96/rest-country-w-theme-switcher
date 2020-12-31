@@ -1,4 +1,4 @@
-<div class="country-detail" *ngIf="country">
+<div class="country-detail">
   <button class="country-detail__button" routerLink="/">
     <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8.22305 12.6631L3.93005 8.37009H13.5161V6.37009H3.93005L8.22305 2.07709L6.80905 0.663086L0.102051 7.37009L6.80905 14.0771L8.22305 12.6631Z" fill="black"/>
@@ -6,9 +6,9 @@
     <span>Back</span>
   </button>
 
-  <img class="country-detail__flag" [src]="country.flag" [alt]="country.name" loading="lazy">
+  <img class="country-detail__flag" [src]="country.flag" [alt]="country.name" loading="lazy"  *ngIf="country">
 
-  <section class="country-detail__info">
+  <section class="country-detail__info" *ngIf="country">
     <h2 class="country-detail__title">{{ country.name }}</h2>
 
     <div class="country-detail__left">
@@ -36,4 +36,6 @@
       <div class="country-detail__border-country" *ngFor="let border of country.borders; let i = index">{{ border }}</div>
     </div>
   </section>
+
+  <app-not-found class="country-detail__empty" *ngIf="!country && !isLoading"></app-not-found>
 </div>

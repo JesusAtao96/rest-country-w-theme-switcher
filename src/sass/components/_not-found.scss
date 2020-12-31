@@ -1,0 +1,36 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 5rem;
+  }
+
+  &__icon {
+    width: 260px;
+    height: 260px;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 200px;
+      height: 200px;
+    }
+
+    path {
+      stroke: var(--primary-text);
+      opacity: .6;
+    }
+  }
+
+  &__message {
+    margin-top: .3em;
+    color: var(--primary-text);
+    opacity: .6;
+    font-size: 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2rem;
+    }
+  }
+}

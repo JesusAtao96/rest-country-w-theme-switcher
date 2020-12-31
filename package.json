@@ -1,5 +1,5 @@
 {
-  "name": "rest-country-w-theme-switcher",
+  "name": "rest-country-theme-switcher",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,7 +12,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
-    "@angular/cdk": "^11.0.3",
     "@angular/common": "~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
@@ -20,6 +19,7 @@
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
+    "@angular/service-worker": "~11.0.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

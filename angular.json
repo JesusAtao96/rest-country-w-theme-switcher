@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rest-country-w-theme-switcher": {
+    "rest-country-theme-switcher": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rest-country-w-theme-switcher",
+            "outputPath": "dist/rest-country-theme-switcher",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -58,25 +59,27 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rest-country-w-theme-switcher:build"
+            "browserTarget": "rest-country-theme-switcher:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rest-country-w-theme-switcher:build:production"
+              "browserTarget": "rest-country-theme-switcher:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rest-country-w-theme-switcher:build"
+            "browserTarget": "rest-country-theme-switcher:build"
           }
         },
         "test": {
@@ -88,7 +91,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -113,18 +117,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rest-country-w-theme-switcher:serve"
+            "devServerTarget": "rest-country-theme-switcher:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rest-country-w-theme-switcher:serve:production"
+              "devServerTarget": "rest-country-theme-switcher:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "rest-country-w-theme-switcher",
+  "defaultProject": "rest-country-theme-switcher",
   "cli": {
     "analytics": "c50b9fea-807d-4b05-8242-d8e3dad72ecc"
   }

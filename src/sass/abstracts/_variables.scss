@@ -18,6 +18,7 @@ $black: #000;
   --search-color: #{rgba($dark-gray, .5)};
   --back-color: #{$very-dark-blue-2};
   --btn-theme-color: #{rgba($black, .1)};
+  --loading-background: #{ rgba($black, .6) };
 }
 
 // Dark Mode
@@ -30,6 +31,7 @@ $black: #000;
   --search-color: #{rgba($white, .7)};
   --back-color: #{rgba($white, .7)};
   --btn-theme-color: #{rgba($white, .1)};
+  --loading-background: #{ rgba($white, .6) };
 }
 
 // Font Face
@@ -44,8 +46,6 @@ $default-padding: 5rem;
 $default-padding-lr: 0 5rem;
 $default-padding-tb: 5rem 0;
 
-// Responsive Breakpoints -> 1em = 16px
-$bp-largest: 75em; // 1200px / 16px = 75
-$bp-large: 62.5em; // 1000px / 16px = 62.5
-$bp-medium: 50em; // 800px / 16px = 50
-$bp-small: 38.125em; // 610px / 16px = 38.125
+$bp-large: 62.5em;
+$bp-medium: 50em;
+$bp-small: 38.125em;

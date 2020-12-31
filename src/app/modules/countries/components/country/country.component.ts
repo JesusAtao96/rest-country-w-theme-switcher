@@ -1,13 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+
+import { Country } from '@data/interfaces';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountryComponent implements OnInit {
-  @Input() country: any;
+  @Input() country: Country;
 
   constructor() { }
 

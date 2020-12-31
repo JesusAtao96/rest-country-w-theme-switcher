@@ -1,0 +1,35 @@
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--loading-background);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all;
+
+  &__box {
+    border-radius: .9rem;
+    background-color: var(--element-color);
+    width: 20rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: loadingAnimation 1.5s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
+  }
+
+  &__text {
+    color: var(--primary-text);
+    font-size: 3rem;
+  }
+}
+
+@keyframes loadingAnimation {
+  from { transform: none; }
+  50% { transform: scale(1.3); }
+  to { transform: none; }
+}

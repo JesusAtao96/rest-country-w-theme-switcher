@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeSwitcherService } from '@data/services';
+import { ThemeSwitcherService } from '@shared/services';
 
 @Component({
   selector: 'app-header',
