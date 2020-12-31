@@ -22,6 +22,10 @@
     }
   }
 
+  &__label {
+    display: none;
+  }
+
   &__input {
     font-family: inherit;
     display: inline-block;
