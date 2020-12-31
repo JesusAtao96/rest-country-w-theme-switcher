@@ -11,8 +11,6 @@ export class ButtonScrollTopComponent implements OnInit {
   pageYoffset: number;
 
   @HostListener('window:scroll', ['$event']) onScroll(event): void {
-    console.log(this.pageYoffset);
-
     this.pageYoffset = window.pageYOffset;
   }
 
