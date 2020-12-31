@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'sass/abstracts/variables';
+
+@import 'sass/base/base';
+
+@import 'sass/components/country';
+@import 'sass/components/searchbox';
+@import 'sass/components/selectbox';
+
+@import 'sass/layout/footer';
+@import 'sass/layout/header';
+@import 'sass/layout/base';
+
+@import 'sass/pages/country-detail';
+@import 'sass/pages/countries';

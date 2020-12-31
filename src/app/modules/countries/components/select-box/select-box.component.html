@@ -1,0 +1,31 @@
+<div class="selectbox">
+  <input class="selectbox__check" id="select-chk" type="checkbox" />
+  <label for="select-chk" class="selectbox__label">
+    <span class="selectbox__text">{{ placeholderText }}</span>
+
+    <svg
+      class="selectbox__icon"
+      width="13"
+      height="8"
+      viewBox="0 0 13 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.8091 0.663086L6.51608 4.95609L2.22308 0.663086L0.809082 2.07709L6.51608 7.78409L12.2231 2.07709L10.8091 0.663086Z"
+        fill="black"
+      />
+    </svg>
+  </label>
+  <div class="selectbox__list">
+    <label
+      for="select-chk"
+      class="selectbox__item"
+      *ngFor="let region of regions"
+      [ngClass]="{ 'selectbox__item--active': placeholderText === region.text }"
+      (click)="select(region)"
+    >
+      {{ region.text }}
+    </label>
+  </div>
+</div>
