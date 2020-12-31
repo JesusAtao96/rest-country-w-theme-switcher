@@ -1,11 +1,24 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 import { Region } from '@data/interfaces';
 
 @Component({
   selector: 'app-select-box',
   templateUrl: './select-box.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('selectAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-100px)' }),
+        animate('.3s ease-out', style({ opacity: 1, transform: 'translateY(0px)' })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, transform: 'translateY(0px)' }),
+        animate('.3s ease-in', style({ opacity: 0, transform: 'translateY(-100px)' })),
+      ]),
+    ]),
+  ],
 })
 export class SelectBoxComponent implements OnInit {
   isSelectOpen: boolean;
@@ -15,7 +28,7 @@ export class SelectBoxComponent implements OnInit {
   @Output() checkOnChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() set isActive(event) {
     this.isSelectOpen = event;
-  };
+  }
 
 
   regions: Region[] = [

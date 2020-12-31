@@ -17,7 +17,7 @@
       />
     </svg>
   </label>
-  <div class="selectbox__list">
+  <div class="selectbox__list" *ngIf="isSelectOpen" [@selectAnimation]>
     <label
       for="select-chk"
       class="selectbox__item"
