@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/JesusAtao96/JesusAtao96.github.io/master/frontend-mentor-challenges/rest-countries-api-with-color-theme-switcher/design/desktop-preview.jpg" alt="Theme Switcher Image">
+
 # RestCountryWThemeSwitcher
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
