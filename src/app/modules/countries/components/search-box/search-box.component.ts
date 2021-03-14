@@ -27,9 +27,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.searchInputSubscription = fromEvent(this.countrySearchInput.nativeElement, 'keyup')
       .pipe(
-        map((event: any) => {
-          return event.target.value;
-        }),
+        map((event: any) => event.target.value),
         debounceTime(500),
         distinctUntilChanged()
     )

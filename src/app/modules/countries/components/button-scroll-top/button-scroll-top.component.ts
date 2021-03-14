@@ -10,13 +10,14 @@ import { ViewportScroller } from '@angular/common';
 export class ButtonScrollTopComponent implements OnInit {
   pageYoffset: number;
 
-  @HostListener('window:scroll', ['$event']) onScroll(event): void {
-    this.pageYoffset = window.pageYOffset;
-  }
-
   constructor(private scroll: ViewportScroller) { }
 
   ngOnInit(): void {
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @HostListener('window:scroll', ['$event']) onScroll(event): void {
+    this.pageYoffset = window.pageYOffset;
   }
 
   scrollToTop(): void {
